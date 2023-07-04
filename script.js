@@ -265,79 +265,204 @@ const cards = [
         faction: "Forge"
     },
     {
-        name: "",
-        type: "",
-        faction: ""
+        name: "KP Bulkhead",
+        type: "Systems",
+        faction: "Komplex"
     },
     {
-        name: "",
-        type: "",
-        faction: ""
+        name: "BZ2 Booster",
+        type: "Systems",
+        faction: "Komplex"
     },
     {
-        name: "",
-        type: "",
-        faction: ""
+        name: "Locust Cockpit",
+        type: "Cockpit",
+        faction: "Komplex"
     },
     {
-        name: "",
-        type: "",
-        faction: ""
+        name: "Scarab Cockpit",
+        type: "Cockpit",
+        faction: "Komplex"
     },
     {
-        name: "",
-        type: "",
-        faction: ""
+        name: "Wasp Cockpit",
+        type: "Cockpit",
+        faction: "Komplex"
     },
     {
-        name: "",
-        type: "",
-        faction: ""
+        name: "ECM Fin",
+        type: "Systems",
+        faction: "Komplex"
     },
     {
-        name: "",
-        type: "",
-        faction: ""
+        name: "Maneuvering Fins",
+        type: "Systems",
+        faction: "Komplex"
     },
     {
-        name: "",
-        type: "",
-        faction: ""
+        name: "Tailfin",
+        type: "Systems",
+        faction: "Komplex"
     },
     {
-        name: "",
-        type: "",
-        faction: ""
+        name: "Dual Tailfin",
+        type: "Systems",
+        faction: "Komplex"
     },
     {
-        name: "",
-        type: "",
-        faction: ""
+        name: "Tailfin-2",
+        type: "Systems",
+        faction: "Komplex"
     },
     {
-        name: "",
-        type: "",
-        faction: ""
+        name: "Dual Tailfin-2",
+        type: "Systems",
+        faction: "Komplex"
     },
     {
-        name: "",
-        type: "",
-        faction: ""
+        name: "Tailfin-3",
+        type: "Systems",
+        faction: "Komplex"
     },
     {
-        name: "",
-        type: "",
-        faction: ""
+        name: "CL-ARM Rockets",
+        type: "Systems",
+        faction: "Komplex"
     },
     {
-        name: "",
-        type: "",
-        faction: ""
+        name: "ZM2 Heavy Missile",
+        type: "Systems",
+        faction: "Komplex"
+    },
+    {
+        name: "Stealth Drive",
+        type: "Thruster",
+        faction: "Komplex"
+    },
+    {
+        name: "FB3 Tri-Thruster",
+        type: "Thruster",
+        faction: "Komplex"
+    },
+    {
+        name: "Scarab Thruster",
+        type: "Thruster",
+        faction: "Komplex"
+    },
+    {
+        name: "Locust Thruster Mk2",
+        type: "Thruster",
+        faction: "Komplex"
+    },
+    {
+        name: "Armored Thruster",
+        type: "Thruster",
+        faction: "Komplex"
+    },
+    {
+        name: "Wasp Thruster Mk2",
+        type: "Thruster",
+        faction: "Komplex"
+    },
+    {
+        name: "Wasp Thruster",
+        type: "Thruster",
+        faction: "Komplex"
+    },
+    {
+        name: "CX6 Anti-Matter Torpedo",
+        type: "Systems",
+        faction: "Komplex"
+    },
+    {
+        name: "CX2 Anti-Ship Torpedo",
+        type: "Systems",
+        faction: "Komplex"
+    },
+    {
+        name: "K2 Radiator Array",
+        type: "Systems",
+        faction: "Komplex"
+    },
+    {
+        name: "Small Exhaust",
+        type: "Systems",
+        faction: "Komplex"
+    },
+    {
+        name: "Medium Exhaust",
+        type: "Systems",
+        faction: "Komplex"
+    },
+    {
+        name: "KX Power Cycle",
+        type: "Systems",
+        faction: "Komplex"
+    },
+    {
+        name: "CL-23 Railgun",
+        type: "Systems",
+        faction: "Komplex"
+    },
+    {
+        name: "C6-3 Gatling Gun",
+        type: "Systems",
+        faction: "Komplex"
+    },
+    {
+        name: "C-T22 HE Cannon",
+        type: "Systems",
+        faction: "Komplex"
+    },
+    {
+        name: "DB8 Proton Cannon",
+        type: "Systems",
+        faction: "Komplex"
+    },
+    {
+        name: "CPL-3 Ball Turret",
+        type: "Systems",
+        faction: "Komplex"
+    },
+    {
+        name: "WG5 Grenade Cluster",
+        type: "Systems",
+        faction: "Komplex"
+    },
+    {
+        name: "CPL-2 Mantis Laser",
+        type: "Systems",
+        faction: "Komplex"
+    },
+    {
+        name: "Blade Wings",
+        type: "Wing",
+        faction: "Komplex"
+    },
+    {
+        name: "Locust Wings",
+        type: "Wing",
+        faction: "Komplex"
+    },
+    {
+        name: "WSP2 Wings",
+        type: "Wing",
+        faction: "Komplex"
+    },
+    {
+        name: "WSP1 Wings",
+        type: "Wing",
+        faction: "Komplex"
+    },
+    {
+        name: "Vector Wings",
+        type: "Wing",
+        faction: "Komplex"
     }
 ]
 
-showChassis();
-function showChassis() {
+showAllCards();
+function showAllCards() {
     $(cards).each(function() {
         let name = this.name.toLowerCase();
         let type = this.type.toLowerCase();
