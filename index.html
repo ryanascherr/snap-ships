@@ -7,6 +7,56 @@
     <title>Snap Ships</title>
 </head>
 <body>
+<h1>Snap Ships Card Database</h1>
+<div class="filters">
+    <div class="faction-filters">
+        <h2>Faction</h2>
+        <ul>
+            <li>
+                <input class="faction forge" checked type="checkbox" id="forge" name="checkbox" value="1">
+                <label for="forge">Forge</label>
+            </li>
+            <li>
+                <input class="faction komplex" checked type="checkbox" id="komplex" name="checkbox" value="1">
+                <label for="komplex">Komplex</label>
+            </li>
+        </ul>
+    </div>
+    <div class="type-filters">
+        <h2>Card Type</h2>
+        <ul>
+            <li>
+                <input class="type chassis" checked type="checkbox" id="chassis" name="checkbox" value="1">
+                <label for="chassis">Chassis</label>
+            </li>
+            <li>
+                <input class="type parts-overall" checked type="checkbox" id="parts-overall" name="checkbox" value="1">
+                <label for="parts-overall">Parts</label>
+            </li>
+        </ul>
+    </div>
+    <div class="parts-filters">
+        <h2>Parts</h2>
+        <ul>
+            <li>
+                <input class="parts cockpits" checked type="checkbox" id="cockpits" name="checkbox" value="1">
+                <label for="cockpits">Cockpits</label>
+            </li>
+            <li>
+                <input class="parts thrusters" checked type="checkbox" id="thrusters" name="checkbox" value="1">
+                <label for="thrusters">Thrusters</label>
+            </li>
+            <li>
+                <input class="parts wings" checked type="checkbox" id="wings" name="checkbox" value="1">
+                <label for="wings">Wings</label>
+            </li>
+            <li>
+                <input class="parts systems" checked type="checkbox" id="systems" name="checkbox" value="1">
+                <label for="systems">Systems</label>
+            </li>
+        </ul>
+    </div>
+</div>
 <div class="card-container"></div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

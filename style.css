@@ -2,15 +2,20 @@ body {
     background-color: gray;
 }
 
+h1 {
+    text-align: center;
+    font-family: sans-serif;
+}
+
 img  {
     margin: 5px 7px;
 }
 
-.chassis {
+.chassis-card {
     width: 30%;
 }
 
-.part {
+.part-card {
     width: 18%;
 }
 

@@ -478,9 +478,9 @@ function showAllCards() {
             }
         }
         if (this.type == "Chassis") {
-            $(".card-container").append(`<img class="chassis" src="./card-images/${type}-${faction}-${newName}-front.png">`)
+            $(".card-container").append(`<img class="chassis-card" src="./card-images/${type}-${faction}-${newName}-front.png">`)
         } else {
-            $(".card-container").append(`<img class="part" src="./card-images/${type}-${faction}-${newName}-front.png">`)
+            $(".card-container").append(`<img class="part-card" src="./card-images/${type}-${faction}-${newName}-front.png">`)
         }
         
     })
