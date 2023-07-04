@@ -82,16 +82,29 @@ const cards = [
     {
         name: "Wasp KLAW Fighter Bomber",
         type: "Chassis",
-        faction: ""
+        faction: "Komplex"
     },
     {
         name: "Wasp KLAW Deep Recon",
         type: "Chassis",
-        faction: ""
-    },
-    {
-        name: "",
-        type: "Chassis",
-        faction: ""
+        faction: "Komplex"
     }
 ]
+
+showChassis();
+function showChassis() {
+    $(cards).each(function() {
+        let name = this.name.toLowerCase();
+        name = name.split(" ");
+        let length = name.length;
+        let newName = "";
+        for (let i = 0; i < length; i++) {
+            if (i == length -1) {
+                newName += name[i]
+            } else {
+                newName += name[i] + "-";
+            }
+        }
+        $(".card-container").append(`<img src="./card-images/ChassisCards/${newName}-front.png">`)
+    })
+}

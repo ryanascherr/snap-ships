@@ -1,0 +1,15 @@
+body {
+    background-color: gray;
+}
+
+img {
+    margin: 5px 7px;
+    width: 30%;
+}
+
+.card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
