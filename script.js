@@ -463,7 +463,6 @@ const cards = [
 
 updateCards(cards);
 function updateCards(array) {
-    console.log(array);
     $(array).each(function() {
         let name = this.name.toLowerCase();
         let type = this.type.toLowerCase();
@@ -494,8 +493,8 @@ $(".filter").click(function() {
 function createArray() {
     let array = cards;
     array = getFactions(array);
-    // array = getTypes(array);
-    // array = getParts(array);
+    array = getTypes(array);
+    array = getParts(array);
     removeCards();
     updateCards(array);
 }
@@ -514,6 +513,56 @@ function getFactions(array) {
     }
     if (!komplex) {
         array = array.filter(card => card.faction != "Komplex");
+    }
+    return array;
+}
+
+function getTypes(array) {
+    let chassis;
+    let parts;
+    if($('.chassis').is(':checked')){
+        chassis = true;
+    }
+    if($('.parts-overall').is(':checked')){
+        parts = true;
+    }
+    if (!chassis) {
+        array = array.filter(card => card.type != "Chassis");
+    }
+    if (!parts) {
+        array = array.filter(card => card.type == "Chassis");
+    }
+    return array;
+}
+
+function getParts(array) {
+    let cockpit;
+    let thruster;
+    let wing;
+    let system;
+    if($('.cockpits').is(':checked')){
+        cockpit = true;
+    }
+    if($('.thrusters').is(':checked')){
+        thruster = true;
+    }
+    if($('.wings').is(':checked')){
+        wing = true;
+    }
+    if($('.systems').is(':checked')){
+        system = true;
+    }
+    if (!cockpit) {
+        array = array.filter(card => card.type != "Cockpit");
+    }
+    if (!thruster) {
+        array = array.filter(card => card.type != "Thruster");
+    }
+    if (!wing) {
+        array = array.filter(card => card.type != "Wing");
+    }
+    if (!system) {
+        array = array.filter(card => card.type != "Systems");
     }
     return array;
 }
