@@ -40,12 +40,18 @@ img  {
 .filters ul {
     list-style: none;
     padding: 0;
-    /* display: flex;
-    justify-content: center; */
+    display: flex;
+    justify-content: center;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 .filters li {
     margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
 }
 
 .filters div {
@@ -60,4 +66,8 @@ img  {
     max-width: 1500px;
     padding: 15px;
     width: 100%;
+}
+
+.filters img {
+    max-width: 25px;
 }

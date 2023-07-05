@@ -486,6 +486,43 @@ function updateCards(array) {
     })
 };
 
+$(".faction").click(function(e) {
+    let isSomethingChecked = false;
+    if ($(".forge").is(':checked')) {
+        isSomethingChecked = true;
+    }
+    if ($(".komplex").is(':checked')) {
+        isSomethingChecked = true;    
+    }
+    if (!isSomethingChecked) {
+        $(this).prop('checked', true);
+    }
+});
+
+$(".type").click(function(e) {
+    let isSomethingChecked = false;
+    if ($(".chassis").is(':checked')) {
+        isSomethingChecked = true;
+    }
+    if ($(".parts-overall").is(':checked')) {
+        isSomethingChecked = true;    
+    }
+    if (!isSomethingChecked) {
+        $(this).prop('checked', true);
+    }
+    checkForDisable(this);
+});
+
+function checkForDisable(element) {
+    if (!$(".parts-overall").is(':checked')) {
+        $(".parts").prop( "disabled", true );
+        $('.parts').prop('checked', false);    
+    } else {
+        $(".parts").prop( "disabled", false );
+        $('.parts').prop('checked', true);
+    }
+}
+
 $(".filter").click(function() {
     createArray();
 });
