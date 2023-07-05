@@ -1,3 +1,5 @@
+//this is an array ob objects, where each object is a card
+//any number of key-value pairs can be added for a card for further customization
 const cards = [
     {
         name: "Falx SC-41 Escort",
@@ -462,6 +464,7 @@ const cards = [
 ]
 
 updateCards(cards);
+//takes the array given to it, gets its attributes, creates a structure that will match the name of the png on file, then outputs everything in the array onto the page
 function updateCards(array) {
     $(array).each(function() {
         let name = this.name.toLowerCase();
@@ -478,14 +481,32 @@ function updateCards(array) {
             }
         }
         if (this.type == "Chassis") {
-            $(".card-container").append(`<img class="chassis-card" src="./card-images/${type}-${faction}-${newName}-front.png">`)
+            $(".card-container").append(`<img class="card chassis-card front" src="./card-images/${type}-${faction}-${newName}-front.png">`)
         } else {
-            $(".card-container").append(`<img class="part-card" src="./card-images/${type}-${faction}-${newName}-front.png">`)
+            $(".card-container").append(`<img class="card part-card front" src="./card-images/${type}-${faction}-${newName}-front.png">`)
         }
         
     })
 };
 
+$(".card").click(function() {
+    if ($(this).hasClass("front")) {
+        let src = $(this).attr("src"); 
+        src = src.replace("front", "back"); 
+        $(this).attr("src",src);
+        $(this).removeClass("front");
+        $(this).addClass("back");
+    } else {
+        let src = $(this).attr("src");
+        src = src.replace("back", "front");
+        console.log(src);
+        $(this).attr("src",src);
+        $(this).removeClass("back");
+        $(this).addClass("front");
+    }
+})
+
+//if a user tries to uncheck a faction checkbox, but it would need to no faction checkboxes being checked, it will not uncheck
 $(".faction").click(function(e) {
     let isSomethingChecked = false;
     if ($(".forge").is(':checked')) {
@@ -499,6 +520,7 @@ $(".faction").click(function(e) {
     }
 });
 
+//if a user tries to uncheck a type checkbox, but it would need to no type checkboxes being checked, it will not uncheck
 $(".type").click(function(e) {
     let isSomethingChecked = false;
     if ($(".chassis").is(':checked')) {
@@ -523,6 +545,7 @@ function checkForDisable(element) {
     }
 }
 
+//whenever a checkbox is clicked, run createArray();
 $(".filter").click(function() {
     createArray();
 });
