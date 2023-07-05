@@ -461,9 +461,10 @@ const cards = [
     }
 ]
 
-showAllCards();
-function showAllCards() {
-    $(cards).each(function() {
+updateCards(cards);
+function updateCards(array) {
+    console.log(array);
+    $(array).each(function() {
         let name = this.name.toLowerCase();
         let type = this.type.toLowerCase();
         let faction = this.faction.toLowerCase();
@@ -484,4 +485,39 @@ function showAllCards() {
         }
         
     })
+};
+
+$(".filter").click(function() {
+    createArray();
+});
+
+function createArray() {
+    let array = cards;
+    array = getFactions(array);
+    // array = getTypes(array);
+    // array = getParts(array);
+    removeCards();
+    updateCards(array);
+}
+
+function getFactions(array) {
+    let forge;
+    let komplex;
+    if($('.forge').is(':checked')){
+        forge = true;
+    }
+    if($('.komplex').is(':checked')){
+        komplex = true;
+    }
+    if (!forge) {
+        array = array.filter(card => card.faction != "Forge");
+    }
+    if (!komplex) {
+        array = array.filter(card => card.faction != "Komplex");
+    }
+    return array;
+}
+
+function removeCards() {
+    $(".card-container").empty();
 }
