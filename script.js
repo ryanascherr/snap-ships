@@ -489,20 +489,20 @@ function updateCards(array) {
     })
 };
 
-$(".card").click(function() {
-    if ($(this).hasClass("front")) {
-        let src = $(this).attr("src"); 
+$(".card-container").click(function(e) {
+    if (!$(e.target).hasClass("card")) return;
+    if ($(e.target).hasClass("front")) {
+        let src = $(e.target).attr("src"); 
         src = src.replace("front", "back"); 
-        $(this).attr("src",src);
-        $(this).removeClass("front");
-        $(this).addClass("back");
+        $(e.target).attr("src",src);
+        $(e.target).removeClass("front");
+        $(e.target).addClass("back");
     } else {
-        let src = $(this).attr("src");
+        let src = $(e.target).attr("src");
         src = src.replace("back", "front");
-        console.log(src);
-        $(this).attr("src",src);
-        $(this).removeClass("back");
-        $(this).addClass("front");
+        $(e.target).attr("src",src);
+        $(e.target).removeClass("back");
+        $(e.target).addClass("front");
     }
 })
 
@@ -538,10 +538,12 @@ $(".type").click(function(e) {
 function checkForDisable(element) {
     if (!$(".parts-overall").is(':checked')) {
         $(".parts").prop( "disabled", true );
-        $('.parts').prop('checked', false);    
+        $('.parts').prop('checked', false);  
+        $(".parts-filters").addClass("disabled");  
     } else {
         $(".parts").prop( "disabled", false );
         $('.parts').prop('checked', true);
+        $(".parts-filters").removeClass("disabled");
     }
 }
 
