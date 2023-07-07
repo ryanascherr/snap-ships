@@ -197,16 +197,6 @@ const cards = [
         faction: "Forge"
     },
     {
-        name: "Falx Cockpit",
-        type: "Cockpit",
-        faction: "Forge"
-    },
-    {
-        name: "XF-25 Cockpit",
-        type: "Cockpit",
-        faction: "Forge"
-    },
-    {
         name: "Mark 48 Shipbreaker",
         type: "Systems",
         faction: "Forge"
@@ -538,11 +528,9 @@ $(".type").click(function(e) {
 function checkForDisable(element) {
     if (!$(".parts-overall").is(':checked')) {
         $(".parts").prop( "disabled", true );
-        $('.parts').prop('checked', false);  
         $(".parts-filters").addClass("disabled");  
     } else {
         $(".parts").prop( "disabled", false );
-        $('.parts').prop('checked', true);
         $(".parts-filters").removeClass("disabled");
     }
 }
