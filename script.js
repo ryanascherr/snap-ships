@@ -1,10 +1,11 @@
-//this is an array ob objects, where each object is a card
-//any number of key-value pairs can be added for a card for further customization
+//this is an array of objects, where each object is a card
+//any number of key-value pairs can be added to a card for further customization
 const cards = [
     {
         name: "Falx SC-41 Escort",
         type: "Chassis",
-        faction: "Forge"
+        faction: "Forge",
+        url: "https://images.squarespace-cdn.com/content/v1/640d30d63bc48b5227f654a6/08c38b6b-931d-4c2e-907c-985d958999fe/chassisForge_Falx_27F.png?format=1000w"
     },
     {
         name: "Falx GA-15 Ground Assault",
@@ -453,79 +454,129 @@ const cards = [
     }
 ]
 
-updateCards(cards);
-//takes the array given to it, gets its attributes, creates a structure that will match the name of the png on file, then outputs everything in the array onto the page
-function updateCards(array) {
-    $(array).each(function() {
-        let name = this.name.toLowerCase();
-        let type = this.type.toLowerCase();
-        let faction = this.faction.toLowerCase();
-        name = name.split(" ");
-        let length = name.length;
-        let newName = "";
-        for (let i = 0; i < length; i++) {
-            if (i == length -1) {
-                newName += name[i]
+updateDisplayedCards(cards);
+
+//for each item in the array of cards passed to it, gets its attributes and creates a string that will match the name of its corresponding image on file
+//then display all of the cards to the page
+//if the card is a chassis card, give it the class 'chassis'
+//if the card is a part card, give it the class 'part'
+function updateDisplayedCards(arrayOfCards) {
+    $(arrayOfCards).each(function() {
+        let cardName = this.name.toLowerCase();
+        let cardType = this.type.toLowerCase();
+        let cardFaction = this.faction.toLowerCase();
+        cardName = cardName.split(" ");
+        let nameLength = cardName.length;
+        let updatedCardName = "";
+
+        for (let i = 0; i < nameLength; i++) {
+            if (i == nameLength -1) {
+                updatedCardName += cardName[i];
             } else {
-                newName += name[i] + "-";
+                updatedCardName += cardName[i] + "-";
             }
         }
-        if (this.type == "Chassis") {
-            $(".card-container").append(`<img class="card chassis-card front" src="./card-images/${type}-${faction}-${newName}-front.png">`)
+
+        if (cardType == "chassis") {
+            $(".card-container").append(`<img class="card chassis-card front" src="./card-images/${cardType}-${cardFaction}-${updatedCardName}-front.png">`)
         } else {
-            $(".card-container").append(`<img class="card part-card front" src="./card-images/${type}-${faction}-${newName}-front.png">`)
+            $(".card-container").append(`<img class="card part-card front" src="./card-images/${cardType}-${cardFaction}-${updatedCardName}-front.png">`)
         }
-        
     })
 };
 
+//if a card is clicked, check if it has the class 'front' or 'back'
+//if it has the class 'front', the back of the card is shown and it now has the class 'back'
+//if it has the class 'back', the front of the card is shown and it now has the class 'front'
 $(".card-container").click(function(e) {
-    if (!$(e.target).hasClass("card")) return;
-    if ($(e.target).hasClass("front")) {
-        let src = $(e.target).attr("src"); 
-        src = src.replace("front", "back"); 
-        $(e.target).attr("src",src);
-        $(e.target).removeClass("front");
-        $(e.target).addClass("back");
-    } else {
-        let src = $(e.target).attr("src");
-        src = src.replace("back", "front");
-        $(e.target).attr("src",src);
-        $(e.target).removeClass("back");
-        $(e.target).addClass("front");
+    let clickedItem = e.target;
+
+    if ($(clickedItem).hasClass("card")) {
+        flipCard(clickedItem);
     }
 })
 
-//if a user tries to uncheck a faction checkbox, but it would need to no faction checkboxes being checked, it will not uncheck
-$(".faction").click(function(e) {
-    let isSomethingChecked = false;
-    if ($(".forge").is(':checked')) {
-        isSomethingChecked = true;
+function flipCard(selectedCard) {
+    let cardImageSource = $(selectedCard).attr("src");
+    let isCardShowingFront = $(selectedCard).hasClass("front");
+
+    if (isCardShowingFront) {
+        cardImageSource = cardImageSource.replace("front", "back"); 
+        $(selectedCard).attr("src", cardImageSource);
+        $(selectedCard).removeClass("front");
+        $(selectedCard).addClass("back");
+    } else {
+        cardImageSource = cardImageSource.replace("back", "front");
+        $(selectedCard).attr("src", cardImageSource);
+        $(selectedCard).removeClass("back");
+        $(selectedCard).addClass("front");
     }
-    if ($(".komplex").is(':checked')) {
-        isSomethingChecked = true;    
+}
+
+$(".filter").click(function() {
+    let selectedCheckbox = this;
+
+    if ($(selectedCheckbox).hasClass("faction")) {
+        makeSureAFactionCheckboxIsChecked(selectedCheckbox);
     }
-    if (!isSomethingChecked) {
-        $(this).prop('checked', true);
+
+    if ($(selectedCheckbox).hasClass("type")) {
+        makeSureATypeCheckboxIsChecked(selectedCheckbox);
+        checkIfPartsShouldBeDisabled();
     }
+
+    if ($(selectedCheckbox).hasClass("parts")) {
+        makeSureAPartsCheckboxIsChecked(selectedCheckbox);
+    }
+
+    createArray();
 });
 
-//if a user tries to uncheck a type checkbox, but it would need to no type checkboxes being checked, it will not uncheck
-$(".type").click(function(e) {
-    let isSomethingChecked = false;
-    if ($(".chassis").is(':checked')) {
-        isSomethingChecked = true;
-    }
-    if ($(".parts-overall").is(':checked')) {
-        isSomethingChecked = true;    
-    }
-    if (!isSomethingChecked) {
-        $(this).prop('checked', true);
-    }
-    checkForDisable(this);
-});
+//if a user tries to uncheck a faction checkbox, but it would lead to no faction checkboxes being checked, it will not uncheck
+function makeSureAFactionCheckboxIsChecked(selectedCheckbox) {
+    let isForgeCheckboxChecked = $(".forge").is(':checked');
+    let isKomplexCheckboxChecked = $(".komplex").is(':checked');
 
-function checkForDisable(element) {
+    if (!isForgeCheckboxChecked && !isKomplexCheckboxChecked) {
+        $(selectedCheckbox).prop('checked', true);
+    }
+}
+
+//if a user tries to uncheck a cockpit, thruster, wing, or system checkbox, but it would lead to none of them being checked, it will not uncheck
+function makeSureAPartsCheckboxIsChecked(selectedCheckbox) {
+    let isCockpitCheckboxChecked = $('.cockpits').is(':checked');
+    let isThrusterCheckboxChecked = $('.thrusters').is(':checked');
+    let isWingCheckboxChecked = $('.wings').is(':checked');
+    let isSystemCheckboxChecked = $('.systems').is(':checked');
+
+    if (!isCockpitCheckboxChecked && !isThrusterCheckboxChecked && !isWingCheckboxChecked && !isSystemCheckboxChecked) {
+        $(selectedCheckbox).prop('checked', true); 
+    }
+
+    // let areAllNotChecked = [
+    //     isCockpitCheckboxChecked,
+    //     isThrusterCheckboxChecked,
+    //     isWingCheckboxChecked,
+    //     isSystemCheckboxChecked
+    // ].every((currentCheckbox) => currentCheckbox == false);
+
+    // if (areAllNotChecked) {
+    //     $(selectedCheckbox).prop('checked', true);
+    // }
+}
+
+//if a user tries to uncheck a type checkbox, but it would lead to no type checkboxes being checked, it will not uncheck
+function makeSureATypeCheckboxIsChecked(selectedCheckbox) {
+    let isChassisCheckboxChecked = $(".chassis").is(':checked');
+    let isPartsCheckboxChecked = $(".parts-overall").is(':checked');
+
+    if (!isChassisCheckboxChecked && !isPartsCheckboxChecked) {
+        $(selectedCheckbox).prop('checked', true);
+    }
+}
+
+//if 'parts' is unchecked, disable the cockpits, thrusters, wings, and systems checkboxes, and add the 'disabled' class to the entire box
+function checkIfPartsShouldBeDisabled() {
     if (!$(".parts-overall").is(':checked')) {
         $(".parts").prop( "disabled", true );
         $(".parts-filters").addClass("disabled");  
@@ -535,88 +586,85 @@ function checkForDisable(element) {
     }
 }
 
-//whenever a checkbox is clicked, run createArray();
-$(".filter").click(function() {
-    createArray();
-});
-
+//looks at all of the currently checked checkboxes, and creates an array of cards that matches
+//then remove all cards that were previously displayed
+//then display new array of cards
 function createArray() {
-    let array = cards;
-    array = getFactions(array);
-    array = getTypes(array);
-    array = getParts(array);
+    let arrayOfCards = cards;
+
+    arrayOfCards = filterFactions(arrayOfCards);
+    arrayOfCards = filterTypes(arrayOfCards);
+    arrayOfCards = filterParts(arrayOfCards);
+
     removeCards();
-    updateCards(array);
+
+    updateDisplayedCards(arrayOfCards);
 }
 
-function getFactions(array) {
-    let forge;
-    let komplex;
-    if($('.forge').is(':checked')){
-        forge = true;
+//if forge is unchecked, remove all forge cards from the array
+//if komplex is unchecked, remove all komplex cards from the array
+function filterFactions(arrayOfCards) {
+    let isForgeCheckboxChecked = $('.forge').is(':checked');
+    let isKomplexCheckboxChecked = $('.komplex').is(':checked');
+
+    if (!isForgeCheckboxChecked) {
+        arrayOfCards = arrayOfCards.filter(card => card.faction != "Forge");
     }
-    if($('.komplex').is(':checked')){
-        komplex = true;
+
+    if (!isKomplexCheckboxChecked) {
+        arrayOfCards = arrayOfCards.filter(card => card.faction != "Komplex");
     }
-    if (!forge) {
-        array = array.filter(card => card.faction != "Forge");
-    }
-    if (!komplex) {
-        array = array.filter(card => card.faction != "Komplex");
-    }
-    return array;
+
+    return arrayOfCards;
 }
 
-function getTypes(array) {
-    let chassis;
-    let parts;
-    if($('.chassis').is(':checked')){
-        chassis = true;
+//if chassis is unchecked, remove all chassis cards from the array
+//if parts is unchecked, remove all parts cards from the array
+function filterTypes(arrayOfCards) {
+    let isChassisCheckboxChecked = $('.chassis').is(':checked');
+    let isPartsCheckboxChecked = $('.parts-overall').is(':checked');
+
+    if (!isChassisCheckboxChecked) {
+        arrayOfCards = arrayOfCards.filter(card => card.type != "Chassis");
     }
-    if($('.parts-overall').is(':checked')){
-        parts = true;
+
+    if (!isPartsCheckboxChecked) {
+        arrayOfCards = arrayOfCards.filter(card => card.type == "Chassis");
     }
-    if (!chassis) {
-        array = array.filter(card => card.type != "Chassis");
-    }
-    if (!parts) {
-        array = array.filter(card => card.type == "Chassis");
-    }
-    return array;
+
+    return arrayOfCards;
 }
 
-function getParts(array) {
-    let cockpit;
-    let thruster;
-    let wing;
-    let system;
-    if($('.cockpits').is(':checked')){
-        cockpit = true;
+//if cockpit is unchecked, remove all cockpit cards from the array
+//if thruster is unchecked, remove all thruster cards from the array
+//if wing is unchecked, remove all wing cards from the array
+//if system is unchecked, remove all system cards from the array
+function filterParts(arrayOfCards) {
+    let isCockpitCheckboxChecked = $('.cockpits').is(':checked');
+    let isThrusterCheckboxChecked = $('.thrusters').is(':checked');
+    let isWingCheckboxChecked = $('.wings').is(':checked');
+    let isSystemCheckboxChecked = $('.systems').is(':checked');
+
+    if (!isCockpitCheckboxChecked) {
+        arrayOfCards = arrayOfCards.filter(card => card.type != "Cockpit");
     }
-    if($('.thrusters').is(':checked')){
-        thruster = true;
+
+    if (!isThrusterCheckboxChecked) {
+        arrayOfCards = arrayOfCards.filter(card => card.type != "Thruster");
     }
-    if($('.wings').is(':checked')){
-        wing = true;
+
+    if (!isWingCheckboxChecked) {
+        arrayOfCards = arrayOfCards.filter(card => card.type != "Wing");
     }
-    if($('.systems').is(':checked')){
-        system = true;
+
+    if (!isSystemCheckboxChecked) {
+        arrayOfCards = arrayOfCards.filter(card => card.type != "Systems");
     }
-    if (!cockpit) {
-        array = array.filter(card => card.type != "Cockpit");
-    }
-    if (!thruster) {
-        array = array.filter(card => card.type != "Thruster");
-    }
-    if (!wing) {
-        array = array.filter(card => card.type != "Wing");
-    }
-    if (!system) {
-        array = array.filter(card => card.type != "Systems");
-    }
-    return array;
+
+    return arrayOfCards;
 }
 
+//remove all shown cards
 function removeCards() {
     $(".card-container").empty();
 }
