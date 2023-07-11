@@ -6,64 +6,178 @@
     <link rel="stylesheet" href="./style.css">
     <title>Snap Ships</title>
 </head>
+<header>
+    <h2 style="margin-left: 15px;"><a href="https://www.snapshipstactics.com/">Snap Ships Tactics</a></h2>
+    <ul>
+        <li><a href="https://www.snapshipstactics.com/">HOME</a></li>
+        <li><a href="https://www.snapshipstactics.com/subscribe">Subscribe</a></li>
+        <li><a href="https://www.snapshipstactics.com/retail">Retail</a></li>
+        <li><a href="https://www.snapshipstactics.com/about">About</a></li>
+    </ul>
+    <button style="margin-right: 15px;"><a href="https://store.snapshipstactics.com/">STORE</a></button>
+</header>
 <body>
-<h1>Snap Ships Card Database</h1>
+<div class="title">
+    <h1>Snap Ships Tactics Card Database</h1>
+</div>
 <div class="filters">
     <div class="faction-filters">
         <h2>Faction</h2>
-        <ul>
-            <li>
-                <input class="filter faction forge" checked type="checkbox" id="forge" name="checkbox" value="1">
-                <label for="forge">Forge</label>
-                <img src="./icons/icon_faction_forge_noname.png" alt="">
-            </li>
-            <li>
-                <input class="filter faction komplex" checked type="checkbox" id="komplex" name="checkbox" value="1">
-                <label for="komplex">Komplex</label>
-                <img src="./icons/icon_faction_komplex_noname.png" alt="">
-            </li>
-        </ul>
+        <div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+            <label for="forge" class="filter highlight faction forge" style="display: flex; justify-content: space-between; align-items: center;">
+                <div style="display: flex; align-items: center;">
+                    <img src="./icons/icon_faction_forge_noname.png" alt="">
+                    <input class="filter faction forge d-none" checked type="checkbox" id="forge" name="checkbox" value="1">
+                    <span>FORGE</span>
+                </div>
+                <span class="checkmark">&#10003;</span>
+            </label>
+            <label for="komplex" class="filter highlight faction komplex" style="display: flex; justify-content: space-between; align-items: center;">
+                <div style="display: flex; align-items: center;">
+                    <img src="./icons/icon_faction_komplex_noname.png" alt="">
+                    <input class="filter faction komplex d-none" checked type="checkbox" id="komplex" name="checkbox" value="1">
+                    <span>KOMPLEX</span>
+                </div>
+                <span class="checkmark">&#10003;</span>
+            </label>
+        </div>
+        <!-- <ul>
+            <button>
+                <li>
+                    <div>
+                    <img src="./icons/icon_faction_forge_noname.png" alt="">
+                    <input class="filter faction forge d-none" checked type="checkbox" id="forge" name="checkbox" value="1">
+                    <label for="forge">Forge</label>
+                    </div>
+                    <span>&#10003;</span>
+                </li>
+            </button>
+            <button>
+                <li>
+                    <img src="./icons/icon_faction_komplex_noname.png" alt="">
+                    <input class="filter faction komplex d-none" checked type="checkbox" id="komplex" name="checkbox" value="1">
+                    <label for="komplex">Komplex</label>
+                    <span>&#10003;</span>
+                </li>
+            </button>
+        </ul> -->
     </div>
     <div class="type-filters">
         <h2>Card Type</h2>
-        <ul>
-            <li>
-                <input class="filter type chassis" checked type="checkbox" id="chassis" name="checkbox" value="1">
-                <label for="chassis">Chassis</label>
-            </li>
-            <li>
-                <input class="filter type parts-overall" checked type="checkbox" id="parts-overall" name="checkbox" value="1">
-                <label for="parts-overall">Parts</label>
-            </li>
-        </ul>
+        <div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+            <label for="parts-overall" class="filter highlight type parts-overall" style="display: flex; justify-content: space-between; align-items: center;">
+                <div style="display: flex; align-items: center;">
+                    <p style="margin-left: 60px;">PARTS</p>
+                    <input class="filter type parts-overall d-none" checked type="checkbox" id="parts-overall" name="checkbox" value="1">
+                </div>
+                <span class="checkmark">&#10003;</span>
+            </label>
+            <label for="chassis" class="filter highlight type parts-overall" style="display: flex; justify-content: space-between; align-items: center;">
+                <div style="display: flex; align-items: center;">
+                    <p style="margin-left: 60px;">CHASSIS</p>
+                    <input class="filter type chassis d-none" checked type="checkbox" id="chassis" name="checkbox" value="1">
+                </div>
+                <span class="checkmark">&#10003;</span>
+            </label>
+        </div>
+        <!-- <ul>
+            <button>
+                <li>
+                    <input class="filter type chassis" checked type="checkbox" id="chassis" name="checkbox" value="1">
+                    <label for="chassis">Chassis</label>
+                </li>
+            </button>
+            <label for="parts-overall">Parts
+                <button>
+                    <li>
+                        <input class="filter type parts-overall" checked type="checkbox" id="parts-overall" name="checkbox" value="1">
+                    </li>
+                </button>
+            </label>
+        </ul> -->
     </div>
     <div class="parts-filters">
         <h2>Parts</h2>
-        <ul>
-            <li>
-                <input class="filter parts cockpits" checked type="checkbox" id="cockpits" name="checkbox" value="1">
-                <label for="cockpits">Cockpits</label>
+        <div style="display: flex; justify-content: center;">
+            <label for="cockpits" class="filter highlight parts cockpits" style="display: flex; justify-content: space-between; align-items: center;">
+                <div style="display: flex; align-items: center;">
                 <img src="./icons/sloticon_Cockpit.png" alt="">
-            </li>
-            <li>
-                <input class="filter parts thrusters" checked type="checkbox" id="thrusters" name="checkbox" value="1">
-                <label for="thrusters">Thrusters</label>
+                <input class="filter parts cockpits d-none" checked type="checkbox" id="cockpits" name="checkbox" value="1">
+                <span>COCKPITS</span>
+            </div>
+                <span class="checkmark">&#10003;</span>
+            </label>
+            <label for="thrusters" class="filter highlight parts thrusters" style="display: flex; justify-content: space-between; align-items: center;">
+                <div style="display: flex; align-items: center;">
                 <img src="./icons/sloticon_Engine.png" alt="">
-            </li>
-            <li>
-                <input class="filter parts wings" checked type="checkbox" id="wings" name="checkbox" value="1">
-                <label for="wings">Wings</label>
+                <input class="filter parts thrusters d-none" checked type="checkbox" id="thrusters" name="checkbox" value="1">
+                <span>THRUSTERS</span>
+            </div>
+                <span class="checkmark">&#10003;</span>
+            </label>
+        </div>
+        <div style="display: flex; justify-content: center;">
+            <label for="wings" class="filter highlight parts wings" style="display: flex; justify-content: space-between; align-items: center;">
+                <div style="display: flex; align-items: center;">
                 <img src="./icons/sloticon_Wing.png" alt="">
-            </li>
-            <li>
-                <input class="filter parts systems" checked type="checkbox" id="systems" name="checkbox" value="1">
-                <label for="systems">Systems</label>
+                <input class="filter parts wings d-none" checked type="checkbox" id="wings" name="checkbox" value="1">
+                <span>WINGS</span>
+            </div>
+                <span class="checkmark">&#10003;</span>
+            </label>
+            <label for="systems" class="filter highlight parts systems" style="display: flex; justify-content: space-between; align-items: center;">
+                <div style="display: flex; align-items: center;">
                 <img src="./icons/sloticon_System.png" alt="">
-            </li>
-        </ul>
+                <input class="filter parts systems d-none" checked type="checkbox" id="systems" name="checkbox" value="1">
+                <span>SYSTEMS</span>
+            </div>
+                <span class="checkmark">&#10003;</span>
+            </label>
+        </div>
+
+
+
+        <!-- <ul>
+            <div class="parts-half">
+                <button>
+                    <li>
+                        <img src="./icons/sloticon_Cockpit.png" alt="">
+                        <input class="filter parts cockpits" checked type="checkbox" id="cockpits" name="checkbox" value="1">
+                        <label for="cockpits">Cockpits</label>
+                    </li>
+                </button>
+                <button>
+                    <li>
+                        <img src="./icons/sloticon_Engine.png" alt="">
+                        <input class="filter parts thrusters" checked type="checkbox" id="thrusters" name="checkbox" value="1">
+                        <label for="thrusters">Thrusters</label>
+                    </li>
+                </button>
+            </div>
+            <div class="parts-half">
+                <button>
+                    <li>
+                        <img src="./icons/sloticon_Wing.png" alt="">
+                        <input class="filter parts wings" checked type="checkbox" id="wings" name="checkbox" value="1">
+                        <label for="wings">Wings</label>
+                    </li>
+                </button>
+                <button>
+                    <li>
+                        <img src="./icons/sloticon_System.png" alt="">
+                        <input class="filter parts systems" checked type="checkbox" id="systems" name="checkbox" value="1">
+                        <label for="systems">Systems</label>
+                    </li>
+                </button>
+            </div>
+        </ul> -->
     </div>
 </div>
 <div class="card-container"></div>
+<footer>
+    <p>ALL RIGHTS RESERVED. SNAP SHIPS® IS A TRADEMARK OF <strong>SNAP SHIPS LLC</strong>.</p>
+    <p>ALL CONTENT COPYRIGHT 2023 <strong>SNAP SHIPS LLC</strong>.</p>
+</footer>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="./script.js"></script>

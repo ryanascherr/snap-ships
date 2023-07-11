@@ -454,6 +454,62 @@ const cards = [
     }
 ]
 
+$("input").on('change', function(){    // 2nd (A)
+    // do your code here
+    // It will specifically called on change of your element
+    console.log("a change!");
+    console.log(this);
+    let parent = $(this).parent()[0];
+    parent = $(parent).parent([0]);
+    console.log(parent);
+    if ($(this).is(":checked")) {
+        console.log("checked");
+        $(parent).addClass("highlight");
+        $(parent).removeClass("no-highlight");
+        $(parent).children('.checkmark').removeClass("d-none");
+    } else {
+        console.log("not checked");
+        $(parent).removeClass("highlight");
+        $(parent).addClass("no-highlight");
+        $(parent).children('.checkmark').addClass("d-none");
+    }
+});
+
+// $("label").click(function(e) {
+    // console.log("only once :)")
+    // e.stopPropagation();
+    // e.preventDefault();
+    // let clickedItem = this;
+    // highlightButton(clickedItem);
+
+    // if ($(newThing).hasClass("faction")) {
+    //     makeSureAFactionCheckboxIsChecked(newThing);
+    // }
+
+    // if ($(newThing).hasClass("type")) {
+    //     makeSureATypeCheckboxIsChecked(newThing);
+    //     checkIfPartsShouldBeDisabled();
+    // }
+
+    // if ($(newThing).hasClass("parts")) {
+    //     makeSureAPartsCheckboxIsChecked(newThing);
+    // }
+
+    // createArray();
+// })
+
+function highlightButton(clickedItem) {
+    let isThisHighlighted = $(clickedItem).hasClass("highlight");
+    console.log(isThisHighlighted);
+    if (isThisHighlighted) {
+        $(clickedItem).removeClass("highlight");
+        $(clickedItem).addClass("no-highlight");
+    } else {
+        $(clickedItem).addClass("highlight");
+        $(clickedItem).removeClass("no-highlight");
+    }
+}
+
 updateDisplayedCards(cards);
 
 //for each item in the array of cards passed to it, gets its attributes and creates a string that will match the name of its corresponding image on file
@@ -514,7 +570,14 @@ function flipCard(selectedCard) {
 }
 
 $(".filter").click(function() {
-    let selectedCheckbox = this;
+
+    let clickedItem = this;
+
+    let abc = ($(clickedItem).attr("for"));
+    let newThing = $(`#${abc}`);
+    newThing = newThing[0];
+
+    let selectedCheckbox = newThing;
 
     if ($(selectedCheckbox).hasClass("faction")) {
         makeSureAFactionCheckboxIsChecked(selectedCheckbox);
@@ -534,8 +597,8 @@ $(".filter").click(function() {
 
 //if a user tries to uncheck a faction checkbox, but it would lead to no faction checkboxes being checked, it will not uncheck
 function makeSureAFactionCheckboxIsChecked(selectedCheckbox) {
-    let isForgeCheckboxChecked = $(".forge").is(':checked');
-    let isKomplexCheckboxChecked = $(".komplex").is(':checked');
+    let isForgeCheckboxChecked = $("#forge").is(':checked');
+    let isKomplexCheckboxChecked = $("#komplex").is(':checked');
 
     if (!isForgeCheckboxChecked && !isKomplexCheckboxChecked) {
         $(selectedCheckbox).prop('checked', true);
@@ -544,10 +607,10 @@ function makeSureAFactionCheckboxIsChecked(selectedCheckbox) {
 
 //if a user tries to uncheck a cockpit, thruster, wing, or system checkbox, but it would lead to none of them being checked, it will not uncheck
 function makeSureAPartsCheckboxIsChecked(selectedCheckbox) {
-    let isCockpitCheckboxChecked = $('.cockpits').is(':checked');
-    let isThrusterCheckboxChecked = $('.thrusters').is(':checked');
-    let isWingCheckboxChecked = $('.wings').is(':checked');
-    let isSystemCheckboxChecked = $('.systems').is(':checked');
+    let isCockpitCheckboxChecked = $('#cockpits').is(':checked');
+    let isThrusterCheckboxChecked = $('#thrusters').is(':checked');
+    let isWingCheckboxChecked = $('#wings').is(':checked');
+    let isSystemCheckboxChecked = $('#systems').is(':checked');
 
     if (!isCockpitCheckboxChecked && !isThrusterCheckboxChecked && !isWingCheckboxChecked && !isSystemCheckboxChecked) {
         $(selectedCheckbox).prop('checked', true); 
@@ -567,8 +630,8 @@ function makeSureAPartsCheckboxIsChecked(selectedCheckbox) {
 
 //if a user tries to uncheck a type checkbox, but it would lead to no type checkboxes being checked, it will not uncheck
 function makeSureATypeCheckboxIsChecked(selectedCheckbox) {
-    let isChassisCheckboxChecked = $(".chassis").is(':checked');
-    let isPartsCheckboxChecked = $(".parts-overall").is(':checked');
+    let isChassisCheckboxChecked = $("#chassis").is(':checked');
+    let isPartsCheckboxChecked = $("#parts-overall").is(':checked');
 
     if (!isChassisCheckboxChecked && !isPartsCheckboxChecked) {
         $(selectedCheckbox).prop('checked', true);
@@ -577,7 +640,7 @@ function makeSureATypeCheckboxIsChecked(selectedCheckbox) {
 
 //if 'parts' is unchecked, disable the cockpits, thrusters, wings, and systems checkboxes, and add the 'disabled' class to the entire box
 function checkIfPartsShouldBeDisabled() {
-    if (!$(".parts-overall").is(':checked')) {
+    if (!$("#parts-overall").is(':checked')) {
         $(".parts").prop( "disabled", true );
         $(".parts-filters").addClass("disabled");  
     } else {
@@ -604,8 +667,8 @@ function createArray() {
 //if forge is unchecked, remove all forge cards from the array
 //if komplex is unchecked, remove all komplex cards from the array
 function filterFactions(arrayOfCards) {
-    let isForgeCheckboxChecked = $('.forge').is(':checked');
-    let isKomplexCheckboxChecked = $('.komplex').is(':checked');
+    let isForgeCheckboxChecked = $('#forge').is(':checked');
+    let isKomplexCheckboxChecked = $('#komplex').is(':checked');
 
     if (!isForgeCheckboxChecked) {
         arrayOfCards = arrayOfCards.filter(card => card.faction != "Forge");
