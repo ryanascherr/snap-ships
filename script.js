@@ -454,62 +454,6 @@ const cards = [
     }
 ]
 
-$("input").on('change', function(){    // 2nd (A)
-    // do your code here
-    // It will specifically called on change of your element
-    console.log("a change!");
-    console.log(this);
-    let parent = $(this).parent()[0];
-    parent = $(parent).parent([0]);
-    console.log(parent);
-    if ($(this).is(":checked")) {
-        console.log("checked");
-        $(parent).addClass("highlight");
-        $(parent).removeClass("no-highlight");
-        $(parent).children('.checkmark').removeClass("d-none");
-    } else {
-        console.log("not checked");
-        $(parent).removeClass("highlight");
-        $(parent).addClass("no-highlight");
-        $(parent).children('.checkmark').addClass("d-none");
-    }
-});
-
-// $("label").click(function(e) {
-    // console.log("only once :)")
-    // e.stopPropagation();
-    // e.preventDefault();
-    // let clickedItem = this;
-    // highlightButton(clickedItem);
-
-    // if ($(newThing).hasClass("faction")) {
-    //     makeSureAFactionCheckboxIsChecked(newThing);
-    // }
-
-    // if ($(newThing).hasClass("type")) {
-    //     makeSureATypeCheckboxIsChecked(newThing);
-    //     checkIfPartsShouldBeDisabled();
-    // }
-
-    // if ($(newThing).hasClass("parts")) {
-    //     makeSureAPartsCheckboxIsChecked(newThing);
-    // }
-
-    // createArray();
-// })
-
-function highlightButton(clickedItem) {
-    let isThisHighlighted = $(clickedItem).hasClass("highlight");
-    console.log(isThisHighlighted);
-    if (isThisHighlighted) {
-        $(clickedItem).removeClass("highlight");
-        $(clickedItem).addClass("no-highlight");
-    } else {
-        $(clickedItem).addClass("highlight");
-        $(clickedItem).removeClass("no-highlight");
-    }
-}
-
 updateDisplayedCards(cards);
 
 //for each item in the array of cards passed to it, gets its attributes and creates a string that will match the name of its corresponding image on file
@@ -541,9 +485,28 @@ function updateDisplayedCards(arrayOfCards) {
     })
 };
 
-//if a card is clicked, check if it has the class 'front' or 'back'
-//if it has the class 'front', the back of the card is shown and it now has the class 'back'
-//if it has the class 'back', the front of the card is shown and it now has the class 'front'
+$("input").on('change', function(){
+    let itemChanged = this;
+    highLightOrUnhighlightButton(itemChanged);
+});
+
+//if checkbox is checked, highlight button and show checkmark
+//if checkbox is not checked, remove highlight from button and hide checkmark
+function highLightOrUnhighlightButton(itemChanged) {
+    let changedButton = $(itemChanged).parent()[0];
+    changedButton = $(changedButton).parent([0]);
+
+    if ($(itemChanged).is(":checked")) {
+        $(changedButton).addClass("highlight");
+        $(changedButton).removeClass("no-highlight");
+        $(changedButton).children('.checkmark').removeClass("d-none");
+    } else {
+        $(changedButton).removeClass("highlight");
+        $(changedButton).addClass("no-highlight");
+        $(changedButton).children('.checkmark').addClass("d-none");
+    }
+}
+
 $(".card-container").click(function(e) {
     let clickedItem = e.target;
 
@@ -552,6 +515,8 @@ $(".card-container").click(function(e) {
     }
 })
 
+//if card is showing front, show back
+//if card is showing back, show front
 function flipCard(selectedCard) {
     let cardImageSource = $(selectedCard).attr("src");
     let isCardShowingFront = $(selectedCard).hasClass("front");
@@ -570,14 +535,10 @@ function flipCard(selectedCard) {
 }
 
 $(".filter").click(function() {
-
     let clickedItem = this;
-
-    let abc = ($(clickedItem).attr("for"));
-    let newThing = $(`#${abc}`);
-    newThing = newThing[0];
-
-    let selectedCheckbox = newThing;
+    let id = ($(clickedItem).attr("for"));
+    let selectedCheckbox = $(`#${id}`);
+    selectedCheckbox = selectedCheckbox[0];
 
     if ($(selectedCheckbox).hasClass("faction")) {
         makeSureAFactionCheckboxIsChecked(selectedCheckbox);
@@ -615,17 +576,6 @@ function makeSureAPartsCheckboxIsChecked(selectedCheckbox) {
     if (!isCockpitCheckboxChecked && !isThrusterCheckboxChecked && !isWingCheckboxChecked && !isSystemCheckboxChecked) {
         $(selectedCheckbox).prop('checked', true); 
     }
-
-    // let areAllNotChecked = [
-    //     isCockpitCheckboxChecked,
-    //     isThrusterCheckboxChecked,
-    //     isWingCheckboxChecked,
-    //     isSystemCheckboxChecked
-    // ].every((currentCheckbox) => currentCheckbox == false);
-
-    // if (areAllNotChecked) {
-    //     $(selectedCheckbox).prop('checked', true);
-    // }
 }
 
 //if a user tries to uncheck a type checkbox, but it would lead to no type checkboxes being checked, it will not uncheck
@@ -654,13 +604,11 @@ function checkIfPartsShouldBeDisabled() {
 //then display new array of cards
 function createArray() {
     let arrayOfCards = cards;
-
     arrayOfCards = filterFactions(arrayOfCards);
     arrayOfCards = filterTypes(arrayOfCards);
     arrayOfCards = filterParts(arrayOfCards);
 
     removeCards();
-
     updateDisplayedCards(arrayOfCards);
 }
 
