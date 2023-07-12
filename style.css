@@ -214,34 +214,52 @@ footer {
 /* BEGIN MEDIA QUERIES */
 
 @media only screen and (max-width: 992px){
-    .chassis-card {
-        width: 45%;
+    .card-container .chassis-card {
+        width: 47%;
     }
-    .part-card {
+    .card-container .part-card {
         width: 22%;
     }
 }
 
 @media only screen and (max-width: 768px){
-    .part-card {
+    .card-container .part-card {
         width: 30%;
     }
 }
 
 @media only screen and (max-width: 500px){
-    .chassis-card {
-        width: 90%;
+    .card-container .chassis-card {
+        width: 100%;
     }
-    .part-card {
+    .card-container .part-card {
         width: 45%;
+    }
+    .filters label {
+        width: 135px;
+        height: 35px;
+        font-size: 12px;
+    }
+    .filters img {
+        max-width: 25px;
+    }
+    .filters .checkmark {
+        font-size: 18px;
+    }
+    .filters h2 {
+        font-size: 1.25em;
+    }
+    .filters > div {
+        /* margin: 0 2.5px; */
+        margin: 0;
     }
 }
 
-@media only screen and (max-width: 439.9px){
+/* @media only screen and (max-width: 439.9px){
     .parts-filters > div {
         flex-direction: column;
         align-items: center;
     }
-}
+} */
 
 /* END MEDIA QUERIES */
