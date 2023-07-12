@@ -26,6 +26,12 @@ h1, h2, h3 {
     display: none;
 }
 
+.flip-text {
+    text-align: center;
+    font-size: 12px;
+    margin: 20px 15px 0 15px;
+}
+
 /* END GENERAL */
 /* BEGIN HEADER */
 
