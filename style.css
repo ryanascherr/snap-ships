@@ -1,20 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600;700&display=swap');
+
+* {
+    font-family: 'Work Sans', sans-serif;
+}
+
 .d-none {
     display: none !important;
 }
 
+main {
+    width: 100%;
+}
+
 body {
-    color: #0870B8;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    /* color: #0870B8;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 0;
+    margin: 0; */
     /* padding: 0 15px 15px 15px; */
 }
 
 h1, h2, h3 {
     text-align: center;
-    font-family: sans-serif;
+    /* font-family: sans-serif; */
 }
 
 header {
@@ -37,7 +50,6 @@ header ul {
     justify-content: center;
     align-items: center;
     list-style-type: none;
-    font-family: sans-serif;
 }
 
 header li {
@@ -71,7 +83,6 @@ footer {
     background-color: #0F0E0E;
     color: white;
     padding: 15px;
-    font-family: sans-serif;
     width: 100%;
     text-align: center;
 }
@@ -84,6 +95,8 @@ img  {
     background-color: #0F0E0E;
     width: 100%;
     color: white;
+    padding: 10px;
+    font-size: .85em;
 }
 
 .chassis-card {
@@ -99,7 +112,8 @@ img  {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    margin-top: 15px;
+    margin: 15px auto;
+    max-width: 1200px;
 }
 
 .filters {
@@ -149,12 +163,13 @@ img  {
     border-radius: 30px;
     transition: all .35s;
     font-size: 18px;
-    margin: 5px;
+    margin: 2.5px;
     width: 200px;
     height: 55px;
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    font-weight: bold;
 }
 
 .filters label.no-highlight:hover {
@@ -170,9 +185,9 @@ img  {
     cursor: pointer;
 }
 
-.filters {
+/* .filters {
     font-family: sans-serif;
-}
+} */
 
 .checkmark {
     font-size: 30px;
@@ -267,5 +282,12 @@ input:disabled, .parts-filters.disabled label {
     }
     .part-card {
         width: 45%;
+    }
+}
+
+@media only screen and (max-width: 439.9px){
+    .parts-filters > div {
+        flex-direction: column;
+        align-items: center;
     }
 }
