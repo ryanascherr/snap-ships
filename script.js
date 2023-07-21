@@ -1,3 +1,5 @@
+//TODO: Lazy Loading
+
 //this is an array of objects, where each object is a card
 //any number of key-value pairs can be added to a card for further customization
 const cards = [
@@ -478,9 +480,9 @@ function updateDisplayedCards(arrayOfCards) {
         }
 
         if (cardType == "chassis") {
-            $(".card-container").append(`<img class="card chassis-card front" src="./card-images/${cardType}-${cardFaction}-${updatedCardName}-front.png">`)
+            $(".card-container").append(`<img loading="lazy" class="card chassis-card front" src="./card-images/${cardType}-${cardFaction}-${updatedCardName}-front.png">`)
         } else {
-            $(".card-container").append(`<img class="card part-card front" src="./card-images/${cardType}-${cardFaction}-${updatedCardName}-front.png">`)
+            $(".card-container").append(`<img loading="lazy" class="card part-card front" src="./card-images/${cardType}-${cardFaction}-${updatedCardName}-front.png">`)
         }
     })
 };
