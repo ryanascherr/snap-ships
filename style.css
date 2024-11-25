@@ -37,7 +37,7 @@ h1, h2, h3 {
 
 header {
     background-color: var(--main-blue);
-    padding: 10px 30px;
+    padding: 15px 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -74,6 +74,14 @@ header ul {
     padding: 0;
 }
 
+header img {
+    height: 45px;
+}
+
+.logo-link {
+    margin-right: .25rem;
+}
+
 /* END HEADER */
 /* START TITLE */
 
@@ -91,6 +99,12 @@ header ul {
 /* END TITLE */
 /* BEGIN FILTERS */
 
+.filter-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 5px;
+}
+
 .filters {
     display: flex;
     justify-content: center;
@@ -98,6 +112,12 @@ header ul {
     background-color: var(--background-gray);
     color: black;
     padding-bottom: 10px;
+}
+
+.filters .labels-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 5px;
 }
 
 .filters > div {
@@ -255,21 +275,21 @@ footer {
     .card-container .part-card, .card-container .chassis-card--small {
         width: 45%;
     }
-    .filters label {
+    .filters label, .filters label.filter--small {
         width: 135px;
         height: 35px;
         font-size: 12px;
     }
-    .filters img {
+    .filters img, .filters .filter--small img {
         max-width: 25px;
     }
-    .filters .checkmark {
+    .filters .checkmark, .filters .filter--small .checkmark {
         font-size: 18px;
     }
-    .filters h2 {
+    .filters h2, .filters .filter--small h2 {
         font-size: 1.25em;
     }
-    .filters > div {
+    .filters > div, .filters .filter--small > div {
         /* margin: 0 2.5px; */
         margin: 0;
     }
@@ -283,16 +303,4 @@ footer {
 } */
 
 /* END MEDIA QUERIES */
-
-.filter-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 5px;
-}
-
-.filters .labels-container {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-gap: 5px;
-}
 

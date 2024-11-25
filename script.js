@@ -391,7 +391,7 @@ const cards = [
     },
     {
         name: "Jamming Fin",
-        type: "Fin",
+        type: "Utility",
         faction: "Forge",
         set: "Swarm"
     },
@@ -484,32 +484,32 @@ const cards = [
         name: "Tailfin",
         type: "Fin",
         faction: "Komplex",
-        set: "Starter"
+        set: "Scout"
     },
     {
         name: "Dual Tailfin",
         type: "Fin",
         faction: "Komplex",
+        set: "Scout"
+    },
+    {
+        name: "Tailfin-2",
+        type: "Fin",
+        faction: "Komplex",
+        set: "Starter"
+    },
+    {
+        name: "Dual Tailfin-2",
+        type: "Fin",
+        faction: "Komplex",
         set: "Elite"
     },
-    // {
-    //     name: "Tailfin-2",
-    //     type: "Fin",
-    //     faction: "Komplex",
-    //     set: "TODO"
-    // },
-    // {
-    //     name: "Dual Tailfin-2",
-    //     type: "Fin",
-    //     faction: "Komplex",
-    //     set: "TODO"
-    // },
-    // {
-    //     name: "Tailfin-3",
-    //     type: "Fin",
-    //     faction: "Komplex",
-    //     set: "TODO"
-    // },
+    {
+        name: "Tailfin-3",
+        type: "Fin",
+        faction: "Komplex",
+        set: "Elite"
+    },
     {
         name: "CL-ARM Rockets",
         type: "Missile",
@@ -705,7 +705,7 @@ const cards = [
     },
     {
         name: "Ram Spike",
-        type: "Fin",
+        type: "Utility",
         faction: "Komplex",
         set: "Swarm"
     },
