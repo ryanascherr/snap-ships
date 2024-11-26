@@ -3,6 +3,7 @@
 //this is an array of objects, where each object is a card
 //any number of key-value pairs can be added to a card for further customization
 const cards = [
+    // START FORGE CHASSIS
     {
         name: "Falx SC-41 Escort",
         type: "Chassis",
@@ -82,6 +83,8 @@ const cards = [
         faction: "Forge",
         set: "Swarm"
     },
+    // END FORGE CHASSIS
+    // START KOMPLEX CHASSIS
     {
         name: "Locust KLAW Stealth Craft",
         type: "Chassis",
@@ -160,30 +163,8 @@ const cards = [
         faction: "Komplex",
         set: "Swarm"
     },
-    {
-        name: "BF Bulkhead",
-        type: "Utility",
-        faction: "Forge",
-        set: "Starter"
-    },
-    {
-        name: "Lance Booster",
-        type: "Utility",
-        faction: "Forge",
-        set: "Scout"
-    },
-    {
-        name: "Falx Booster",
-        type: "Utility",
-        faction: "Forge",
-        set: "Elite"
-    },
-    {
-        name: "XRE Extender",
-        type: "Utility",
-        faction: "Forge",
-        set: "Starter"
-    },
+    // END KOMPLEX CHASSIS
+    // START FORGE COCKPITS
     {
         name: "SC-19 Cockpit",
         type: "Cockpit",
@@ -203,53 +184,13 @@ const cards = [
         set: "Starter"
     },
     {
-        name: "Maneuvering Fins",
-        type: "Fin",
+        name: "Gunship Cockpit",
+        type: "Cockpit",
         faction: "Forge",
-        set: "Starter"
+        set: "Swarm"
     },
-    {
-        name: "Falx Fins",
-        type: "Fin",
-        faction: "Forge",
-        set: "Elite"
-    },
-    {
-        name: "Triple Tailfin",
-        type: "Fin",
-        faction: "Forge",
-        set: "Elite"
-    },
-    {
-        name: "XR 135 Missile Rack",
-        type: "Missile",
-        faction: "Forge",
-        set: "Elite"
-    },
-    {
-        name: "XR70 Missile Pod",
-        type: "Missile",
-        faction: "Forge",
-        set: "Starter"
-    },
-    {
-        name: "H.I.V.E Missile Pod",
-        type: "Missile",
-        faction: "Forge",
-        set: "Elite"
-    },
-    {
-        name: "SLS Solar",
-        type: "Vent",
-        faction: "Forge",
-        set: "Starter"
-    },
-    {
-        name: "LS Eye",
-        type: "Utility",
-        faction: "Forge",
-        set: "Starter"
-    },
+    // END FORGE COCKPITS
+    // START FORGE THRUSTERS
     {
         name: "AVB Burst Drive",
         type: "Thruster",
@@ -287,29 +228,45 @@ const cards = [
         set: "Starter"
     },
     {
-        name: "Mark 48 Shipbreaker",
-        type: "Missile",
+        name: "DA Turbine Thruster",
+        type: "Thruster",
+        faction: "Forge",
+        set: "Swarm"
+    },
+    // END FORGE THRUSTERS
+    // START FORGE WINGS
+    {
+        name: "SC-19 Wings",
+        type: "Wing",
+        faction: "Forge",
+        set: "Scout"
+    },
+    {
+        name: "Falx Wings",
+        type: "Wing",
         faction: "Forge",
         set: "Elite"
     },
     {
-        name: "Medium Exhaust",
-        type: "Vent",
-        faction: "Forge",
-        set: "Elite"
-    },
-    {
-        name: "Falx Nose",
-        type: "Vent",
-        faction: "Forge",
-        set: "Elite"
-    },
-    {
-        name: "Small Exhaust",
-        type: "Vent",
+        name: "XF-25 Wings",
+        type: "Wing",
         faction: "Forge",
         set: "Starter"
     },
+    {
+        name: "XJ-7 Wings",
+        type: "Wing",
+        faction: "Forge",
+        set: "Starter"
+    },
+    {
+        name: "RL-55 Wings",
+        type: "Wing",
+        faction: "Forge",
+        set: "Swarm"
+    },
+    // END FORGE WINGS
+    // START FORGE WEAPONS
     {
         name: "SCAR-4 Pulse Laser",
         type: "Weapon",
@@ -335,79 +292,6 @@ const cards = [
         set: "Starter"
     },
     {
-        name: "SC-19 Wings",
-        type: "Wing",
-        faction: "Forge",
-        set: "Scout"
-    },
-    {
-        name: "Falx Wings",
-        type: "Wing",
-        faction: "Forge",
-        set: "Elite"
-    },
-    {
-        name: "XF-25 Wings",
-        type: "Wing",
-        faction: "Forge",
-        set: "Starter"
-    },
-    {
-        name: "XJ-7 Wings",
-        type: "Wing",
-        faction: "Forge",
-        set: "Starter"
-    },
-    // FORGE SWARM PARTS
-    {
-        name: "Gunship Cockpit",
-        type: "Cockpit",
-        faction: "Forge",
-        set: "Swarm"
-    },
-    {
-        name: "Targeting Array",
-        type: "Utility",
-        faction: "Forge",
-        set: "Swarm"
-    },
-    {
-        name: "Small Deflector",
-        type: "Utility",
-        faction: "Forge",
-        set: "Swarm"
-    },
-    {
-        name: "Strafing Fins",
-        type: "Fin",
-        faction: "Forge",
-        set: "Swarm"
-    },
-    {
-        name: "Dual Tailfin",
-        type: "Fin",
-        faction: "Forge",
-        set: "Swarm"
-    },
-    {
-        name: "Jamming Fin",
-        type: "Utility",
-        faction: "Forge",
-        set: "Swarm"
-    },
-    {
-        name: "Missile Relay",
-        type: "Utility",
-        faction: "Forge",
-        set: "Swarm"
-    },
-    {
-        name: "DA Turbine Thruster",
-        type: "Thruster",
-        faction: "Forge",
-        set: "Swarm"
-    },
-    {
         name: "SCAR-2 Pulse Laser",
         type: "Weapon",
         faction: "Forge",
@@ -431,25 +315,148 @@ const cards = [
         faction: "Forge",
         set: "Swarm"
     },
+    // END FORGE WEAPONS
+    // START FORGE MISSILES
     {
-        name: "RL-55 Wings",
-        type: "Wing",
+        name: "XR 135 Missile Rack",
+        type: "Missile",
+        faction: "Forge",
+        set: "Elite"
+    },
+    {
+        name: "XR70 Missile Pod",
+        type: "Missile",
+        faction: "Forge",
+        set: "Starter"
+    },
+    {
+        name: "H.I.V.E Missile Pod",
+        type: "Missile",
+        faction: "Forge",
+        set: "Elite"
+    },
+    {
+        name: "Mark 48 Shipbreaker",
+        type: "Missile",
+        faction: "Forge",
+        set: "Elite"
+    },
+    // END FORGE MISSILES
+    // START FORGE FINS
+    {
+        name: "Maneuvering Fins",
+        type: "Fin",
+        faction: "Forge",
+        set: "Starter"
+    },
+    {
+        name: "Falx Fins",
+        type: "Fin",
+        faction: "Forge",
+        set: "Elite"
+    },
+    {
+        name: "Triple Tailfin",
+        type: "Fin",
+        faction: "Forge",
+        set: "Elite"
+    },
+    {
+        name: "Strafing Fins",
+        type: "Fin",
         faction: "Forge",
         set: "Swarm"
     },
-    // END FORGE SWARM PARTS
     {
-        name: "KP Bulkhead",
-        type: "Utility",
-        faction: "Komplex",
+        name: "Dual Tailfin",
+        type: "Fin",
+        faction: "Forge",
+        set: "Swarm"
+    },
+    // END FORGE FINS
+    // START FORGE VENTS
+    {
+        name: "SLS Solar",
+        type: "Vent",
+        faction: "Forge",
         set: "Starter"
     },
     {
-        name: "BZ2 Booster",
-        type: "Utility",
-        faction: "Komplex",
+        name: "Medium Exhaust",
+        type: "Vent",
+        faction: "Forge",
+        set: "Elite"
+    },
+    {
+        name: "Falx Nose",
+        type: "Vent",
+        faction: "Forge",
+        set: "Elite"
+    },
+    {
+        name: "Small Exhaust",
+        type: "Vent",
+        faction: "Forge",
         set: "Starter"
     },
+    // END FORGE VENTS
+    // START FORGE UTILITY
+    {
+        name: "BF Bulkhead",
+        type: "Utility",
+        faction: "Forge",
+        set: "Starter"
+    },
+    {
+        name: "Lance Booster",
+        type: "Utility",
+        faction: "Forge",
+        set: "Scout"
+    },
+    {
+        name: "Falx Booster",
+        type: "Utility",
+        faction: "Forge",
+        set: "Elite"
+    },
+    {
+        name: "XRE Extender",
+        type: "Utility",
+        faction: "Forge",
+        set: "Starter"
+    },
+    {
+        name: "Targeting Array",
+        type: "Utility",
+        faction: "Forge",
+        set: "Swarm"
+    },
+    {
+        name: "Small Deflector",
+        type: "Utility",
+        faction: "Forge",
+        set: "Swarm"
+    },
+    {
+        name: "Jamming Fin",
+        type: "Utility",
+        faction: "Forge",
+        set: "Swarm"
+    },
+    {
+        name: "Missile Relay",
+        type: "Utility",
+        faction: "Forge",
+        set: "Swarm"
+    },
+    {
+        name: "LS Eye",
+        type: "Utility",
+        faction: "Forge",
+        set: "Starter"
+    },
+    // END FORGE UTILITY
+    // START KOMPLEX COCKPITS
     {
         name: "Locust Cockpit",
         type: "Cockpit",
@@ -469,59 +476,13 @@ const cards = [
         set: "Elite"
     },
     {
-        name: "ECM Fin",
-        type: "Utility",
+        name: "Reaper Cockpit",
+        type: "Cockpit",
         faction: "Komplex",
-        set: "Starter"
+        set: "Swarm"
     },
-    {
-        name: "Maneuvering Fins",
-        type: "Fin",
-        faction: "Komplex",
-        set: "Starter"
-    },
-    {
-        name: "Tailfin",
-        type: "Fin",
-        faction: "Komplex",
-        set: "Scout"
-    },
-    {
-        name: "Dual Tailfin",
-        type: "Fin",
-        faction: "Komplex",
-        set: "Scout"
-    },
-    {
-        name: "Tailfin-2",
-        type: "Fin",
-        faction: "Komplex",
-        set: "Starter"
-    },
-    {
-        name: "Dual Tailfin-2",
-        type: "Fin",
-        faction: "Komplex",
-        set: "Elite"
-    },
-    {
-        name: "Tailfin-3",
-        type: "Fin",
-        faction: "Komplex",
-        set: "Elite"
-    },
-    {
-        name: "CL-ARM Rockets",
-        type: "Missile",
-        faction: "Komplex",
-        set: "Scout"
-    },
-    {
-        name: "ZM2 Heavy Missile",
-        type: "Missile",
-        faction: "Komplex",
-        set: "Starter"
-    },
+    // END KOMPLEX COCKPITS
+    // START KOMPLEX THRUSTERS
     {
         name: "Stealth Drive",
         type: "Thruster",
@@ -565,41 +526,57 @@ const cards = [
         set: "Elite"
     },
     {
-        name: "CX6 Anti-Matter Torpedo",
-        type: "Missile",
+        name: "Thruster Fin",
+        type: "Thruster",
         faction: "Komplex",
-        set: "Elite"
+        set: "Swarm"
     },
+    // END KOMPLEX THRUSTERS
+    // START KOMPLEX WINGS
     {
-        name: "CX2 Anti-Ship Torpedo",
-        type: "Missile",
-        faction: "Komplex",
-        set: "Elite"
-    },
-    {
-        name: "K2 Radiator Array",
-        type: "Vent",
-        faction: "Komplex",
-        set: "Scout"
-    },
-    {
-        name: "Small Exhaust",
-        type: "Vent",
-        faction: "Komplex",
-        set: "Scout"
-    },
-    {
-        name: "Medium Exhaust",
-        type: "Vent",
-        faction: "Komplex",
-        set: "Elite"
-    },
-    {
-        name: "KX Power Cycle",
-        type: "Vent",
+        name: "Blade Wings",
+        type: "Wing",
         faction: "Komplex",
         set: "Starter"
     },
+    {
+        name: "Locust Wings",
+        type: "Wing",
+        faction: "Komplex",
+        set: "Scout"
+    },
+    {
+        name: "WSP2 Wings",
+        type: "Wing",
+        faction: "Komplex",
+        set: "Elite"
+    },
+    {
+        name: "WSP1 Wings",
+        type: "Wing",
+        faction: "Komplex",
+        set: "Elite"
+    },
+    {
+        name: "Vector Wings",
+        type: "Wing",
+        faction: "Komplex",
+        set: "Starter"
+    },
+    {
+        name: "KD1 Dual Wings",
+        type: "Wing",
+        faction: "Komplex",
+        set: "Swarm"
+    },
+    {
+        name: "Swarm Wings",
+        type: "Wing",
+        faction: "Komplex",
+        set: "Swarm"
+    },
+    // END KOMPLEX WINGS
+    // START COMPLEX WEAPONS
     {
         name: "CL-23 Railgun",
         type: "Weapon",
@@ -637,47 +614,138 @@ const cards = [
         set: "Elite"
     },
     {
+        name: "C-8 Gauss Cannon",
+        type: "Weapon",
+        faction: "Komplex",
+        set: "Swarm"
+    },
+    {
+        name: "CDL-Shock",
+        type: "Weapon",
+        faction: "Komplex",
+        set: "Swarm"
+    },
+    {
         name: "CPL-2 Mantis Laser",
         type: "Weapon",
         faction: "Komplex",
         set: "Starter"
     },
+    // END KOMPLEX WEAPONS
+    // START KOMPLEX MISSILES
     {
-        name: "Blade Wings",
-        type: "Wing",
-        faction: "Komplex",
-        set: "Starter"
-    },
-    {
-        name: "Locust Wings",
-        type: "Wing",
+        name: "CL-ARM Rockets",
+        type: "Missile",
         faction: "Komplex",
         set: "Scout"
     },
     {
-        name: "WSP2 Wings",
-        type: "Wing",
-        faction: "Komplex",
-        set: "Elite"
-    },
-    {
-        name: "WSP1 Wings",
-        type: "Wing",
-        faction: "Komplex",
-        set: "Elite"
-    },
-    {
-        name: "Vector Wings",
-        type: "Wing",
+        name: "ZM2 Heavy Missile",
+        type: "Missile",
         faction: "Komplex",
         set: "Starter"
     },
-    // KOMPLEX SWARM PARTS
+    {
+        name: "CX6 Anti-Matter Torpedo",
+        type: "Missile",
+        faction: "Komplex",
+        set: "Elite"
+    },
+    {
+        name: "CX2 Anti-Ship Torpedo",
+        type: "Missile",
+        faction: "Komplex",
+        set: "Elite"
+    },
+    // END KOMPLEX MISSILES
+    // START KOMPLEX FINS
+    {
+        name: "Tailfin",
+        type: "Fin",
+        faction: "Komplex",
+        set: "Scout"
+    },
+    {
+        name: "Tailfin-2",
+        type: "Fin",
+        faction: "Komplex",
+        set: "Starter"
+    },
+    {
+        name: "Tailfin-3",
+        type: "Fin",
+        faction: "Komplex",
+        set: "Elite"
+    },
+    {
+        name: "Dual Tailfin",
+        type: "Fin",
+        faction: "Komplex",
+        set: "Scout"
+    },
+    {
+        name: "Dual Tailfin-2",
+        type: "Fin",
+        faction: "Komplex",
+        set: "Elite"
+    },
+    {
+        name: "Maneuvering Fins",
+        type: "Fin",
+        faction: "Komplex",
+        set: "Starter"
+    },
+    {
+        name: "Armored Tailfin",
+        type: "Fin",
+        faction: "Komplex",
+        set: "Swarm"
+    },
+    // END KOMPLEX FINS
+    // START KOMPLEX VENTS
+    {
+        name: "K2 Radiator Array",
+        type: "Vent",
+        faction: "Komplex",
+        set: "Scout"
+    },
+    {
+        name: "Small Exhaust",
+        type: "Vent",
+        faction: "Komplex",
+        set: "Scout"
+    },
+    {
+        name: "Medium Exhaust",
+        type: "Vent",
+        faction: "Komplex",
+        set: "Elite"
+    },
+    {
+        name: "KX Power Cycle",
+        type: "Vent",
+        faction: "Komplex",
+        set: "Starter"
+    },
+    // END KOMPLEX VENTS
+    // START KOMPLEX UTILITY
     {
         name: "Adaptive Plating",
         type: "Utility",
         faction: "Komplex",
         set: "Swarm"
+    },
+    {
+        name: "KP Bulkhead",
+        type: "Utility",
+        faction: "Komplex",
+        set: "Starter"
+    },
+    {
+        name: "BZ2 Booster",
+        type: "Utility",
+        faction: "Komplex",
+        set: "Starter"
     },
     {
         name: "XM Booster Pods",
@@ -686,20 +754,14 @@ const cards = [
         set: "Swarm"
     },
     {
-        name: "Reaper Cockpit",
-        type: "Cockpit",
+        name: "ECM Fin",
+        type: "Utility",
         faction: "Komplex",
-        set: "Swarm"
+        set: "Starter"
     },
     {
         name: "K2 Small Deflector",
         type: "Utility",
-        faction: "Komplex",
-        set: "Swarm"
-    },
-    {
-        name: "Armored Tailfin",
-        type: "Fin",
         faction: "Komplex",
         set: "Swarm"
     },
@@ -718,36 +780,6 @@ const cards = [
     {
         name: "S-8 Exact",
         type: "Utility",
-        faction: "Komplex",
-        set: "Swarm"
-    },
-    {
-        name: "Thruster Fin",
-        type: "Thruster",
-        faction: "Komplex",
-        set: "Swarm"
-    },
-    {
-        name: "C-8 Gauss Cannon",
-        type: "Weapon",
-        faction: "Komplex",
-        set: "Swarm"
-    },
-    {
-        name: "CDL-Shock",
-        type: "Weapon",
-        faction: "Komplex",
-        set: "Swarm"
-    },
-    {
-        name: "KD1 Dual Wings",
-        type: "Wing",
-        faction: "Komplex",
-        set: "Swarm"
-    },
-    {
-        name: "Swarm Wings",
-        type: "Wing",
         faction: "Komplex",
         set: "Swarm"
     },
