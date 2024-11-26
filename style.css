@@ -295,6 +295,18 @@ footer {
     }
 }
 
+@media only screen and (min-width: 975px){
+    .filter-container--parts {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}
+
+@media only screen and (min-width: 1370px){
+    .filter-container--parts {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
 /* @media only screen and (max-width: 439.9px){
     .parts-filters > div {
         flex-direction: column;
