@@ -221,7 +221,8 @@ header img {
     align-items: center;
     flex-wrap: wrap;
     margin: 15px auto;
-    max-width: 1200px;
+    /* max-width: 1200px; */
+    max-width: 1500px;
 }
 
 .card-container .card:hover {
@@ -233,11 +234,13 @@ header img {
 }
 
 .card-container .chassis-card {
-    width: 30%;
+    /* width: 30%; */
+    /* max-height: 400px;
+    flex-grow: 1; */
 }
 
 .card-container .part-card, .card-container .chassis-card--small {
-    width: 18%;
+    /* width: 18%; */
 }
 
 /* END CARDS */
@@ -255,25 +258,25 @@ footer {
 
 @media only screen and (max-width: 992px){
     .card-container .chassis-card {
-        width: 47%;
+        /* width: 47%; */
     }
     .card-container .part-card, .card-container .chassis-card--small {
-        width: 22%;
+        /* width: 22%; */
     }
 }
 
 @media only screen and (max-width: 768px){
     .card-container .part-card, .card-container .chassis-card--small {
-        width: 30%;
+        /* width: 30%; */
     }
 }
 
 @media only screen and (max-width: 500px){
     .card-container .chassis-card {
-        width: 100%;
+        /* width: 100%; */
     }
     .card-container .part-card, .card-container .chassis-card--small {
-        width: 45%;
+        /* width: 45%; */
     }
     .filters label, .filters label.filter--small {
         width: 135px;
@@ -313,6 +316,18 @@ footer {
         align-items: center;
     }
 } */
+
+@media only screen and (max-width: 657px){
+    .card-container .chassis-card {
+        height: 215px;
+    }
+}
+
+@media only screen and (max-width: 457px){
+    .card-container .chassis-card {
+        height: 300px;
+    }
+}
 
 /* END MEDIA QUERIES */
 
