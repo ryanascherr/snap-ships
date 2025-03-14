@@ -37,7 +37,7 @@ h1, h2, h3 {
 
 header {
     background-color: var(--main-blue);
-    padding: 10px 30px;
+    padding: 15px 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -74,6 +74,14 @@ header ul {
     padding: 0;
 }
 
+header img {
+    height: 45px;
+}
+
+.logo-link {
+    margin-right: .25rem;
+}
+
 /* END HEADER */
 /* START TITLE */
 
@@ -91,6 +99,12 @@ header ul {
 /* END TITLE */
 /* BEGIN FILTERS */
 
+.filter-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 5px;
+}
+
 .filters {
     display: flex;
     justify-content: center;
@@ -98,6 +112,12 @@ header ul {
     background-color: var(--background-gray);
     color: black;
     padding-bottom: 10px;
+}
+
+.filters .labels-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 5px;
 }
 
 .filters > div {
@@ -139,6 +159,20 @@ header ul {
     justify-content: space-between;
     align-items: center;
     font-weight: bold;
+}
+
+.filters label.filter--small {
+    font-size: 13px;
+    width: 175px;
+    height: 40px;
+}
+
+.filters .filter--small img {
+    max-width: 36px;
+}
+
+.filters .filter--small .checkmark {
+    font-size: 25px;
 }
 
 .filters label:hover {
@@ -187,7 +221,8 @@ header ul {
     align-items: center;
     flex-wrap: wrap;
     margin: 15px auto;
-    max-width: 1200px;
+    /* max-width: 1200px; */
+    max-width: 1500px;
 }
 
 .card-container .card:hover {
@@ -199,11 +234,13 @@ header ul {
 }
 
 .card-container .chassis-card {
-    width: 30%;
+    /* width: 30%; */
+    /* max-height: 400px;
+    flex-grow: 1; */
 }
 
-.card-container .part-card {
-    width: 18%;
+.card-container .part-card, .card-container .chassis-card--small {
+    /* width: 18%; */
 }
 
 /* END CARDS */
@@ -221,43 +258,55 @@ footer {
 
 @media only screen and (max-width: 992px){
     .card-container .chassis-card {
-        width: 47%;
+        /* width: 47%; */
     }
-    .card-container .part-card {
-        width: 22%;
+    .card-container .part-card, .card-container .chassis-card--small {
+        /* width: 22%; */
     }
 }
 
 @media only screen and (max-width: 768px){
-    .card-container .part-card {
-        width: 30%;
+    .card-container .part-card, .card-container .chassis-card--small {
+        /* width: 30%; */
     }
 }
 
 @media only screen and (max-width: 500px){
     .card-container .chassis-card {
-        width: 100%;
+        /* width: 100%; */
     }
-    .card-container .part-card {
-        width: 45%;
+    .card-container .part-card, .card-container .chassis-card--small {
+        /* width: 45%; */
     }
-    .filters label {
+    .filters label, .filters label.filter--small {
         width: 135px;
         height: 35px;
         font-size: 12px;
     }
-    .filters img {
+    .filters img, .filters .filter--small img {
         max-width: 25px;
     }
-    .filters .checkmark {
+    .filters .checkmark, .filters .filter--small .checkmark {
         font-size: 18px;
     }
-    .filters h2 {
+    .filters h2, .filters .filter--small h2 {
         font-size: 1.25em;
     }
-    .filters > div {
+    .filters > div, .filters .filter--small > div {
         /* margin: 0 2.5px; */
         margin: 0;
+    }
+}
+
+@media only screen and (min-width: 975px){
+    .filter-container--parts {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}
+
+@media only screen and (min-width: 1370px){
+    .filter-container--parts {
+        grid-template-columns: 1fr 1fr;
     }
 }
 
@@ -268,4 +317,17 @@ footer {
     }
 } */
 
+@media only screen and (max-width: 657px){
+    .card-container .chassis-card {
+        height: 215px;
+    }
+}
+
+@media only screen and (max-width: 457px){
+    .card-container .chassis-card {
+        height: 300px;
+    }
+}
+
 /* END MEDIA QUERIES */
+

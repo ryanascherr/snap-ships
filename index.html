@@ -10,14 +10,51 @@
 </head>
 <body>
     <header>
-        <h2><a href="https://www.snapshipstactics.com/">Snap Ships Tactics</a></h2>
-        <button><a href="https://store.snapshipstactics.com/">STORE</a></button>
+        <a class="logo-link" href="https://www.snapshipstactics.com/"><img src="./icons/sst-logo.png"></a>
+        <button><a href="https://store.snapshipstactics.com/">VISIT THE STORE</a></button>
     </header>
     <main>
         <div class="title">
             <h1>Card Database</h1>
         </div>
         <div class="filters">
+            <div class="set-filters">
+                <h2>Set</h2>
+                <div class="filter-container">
+                    <label for="starter" class="filter highlight set starter">
+                        <div class="inner-filter">
+                            <img src="./icons/starter_set_icon.png" alt="">
+                            <input class="filter set starter d-none" checked type="checkbox" id="starter" name="checkbox" value="1">
+                            <span>STARTER BOX</span>
+                        </div>
+                        <span class="checkmark">&#10003;</span>
+                    </label>
+                    <label for="elite" class="filter highlight set elite">
+                        <div class="inner-filter">
+                            <img src="./icons/elite_set_icon.png" alt="">
+                            <input class="filter set elite d-none" checked type="checkbox" id="elite" name="checkbox" value="1">
+                            <span>ELITE SHIPS</span>
+                        </div>
+                        <span class="checkmark">&#10003;</span>
+                    </label>
+                    <label for="scout" class="filter highlight set scout">
+                        <div class="inner-filter">
+                            <img src="./icons/scout_set_icon.png" alt="">
+                            <input class="filter set scout d-none" checked type="checkbox" id="scout" name="checkbox" value="1">
+                            <span>SCOUT SHIPS</span>
+                        </div>
+                        <span class="checkmark">&#10003;</span>
+                    </label>
+                    <label for="swarm" class="filter highlight set swarm">
+                        <div class="inner-filter">
+                            <img src="./icons/swarm_set_icon.png" alt="">
+                            <input class="filter set swarm d-none" checked type="checkbox" id="swarm" name="checkbox" value="1">
+                            <span>SWARM BOX</span>
+                        </div>
+                        <span class="checkmark">&#10003;</span>
+                    </label>
+                </div>
+            </div>
             <div class="faction-filters">
                 <h2>Faction</h2>
                 <div class="labels-container">
@@ -62,8 +99,8 @@
             </div>
             <div class="parts-filters">
                 <h2>Parts</h2>
-                <div class="labels-container-column">
-                    <label for="cockpits" class="filter highlight parts cockpits">
+                <div class="filter-container filter-container--parts">
+                    <label for="cockpits" class="filter filter--small highlight parts cockpits">
                         <div class="inner-filter">
                             <img src="./icons/sloticon_Cockpit.png" alt="">
                             <input class="filter parts cockpits d-none" checked type="checkbox" id="cockpits" name="checkbox" value="1">
@@ -71,17 +108,15 @@
                         </div>
                         <span class="checkmark">&#10003;</span>
                     </label>
-                    <label for="thrusters" class="filter highlight parts thrusters">
+                    <label for="thrusters" class="filter filter--small highlight parts thrusters">
                         <div class="inner-filter">
-                            <img src="./icons/sloticon_Engine.png" alt="">
+                            <img src="./icons/sloticon_Thruster.png" alt="">
                             <input class="filter parts thrusters d-none" checked type="checkbox" id="thrusters" name="checkbox" value="1">
                             <span>THRUSTERS</span>
                         </div>
                         <span class="checkmark">&#10003;</span>
                     </label>
-                </div>
-                <div class="labels-container-column">
-                    <label for="wings" class="filter highlight parts wings">
+                    <label for="wings" class="filter filter--small highlight parts wings">
                         <div class="inner-filter">
                             <img src="./icons/sloticon_Wing.png" alt="">
                             <input class="filter parts wings d-none" checked type="checkbox" id="wings" name="checkbox" value="1">
@@ -89,11 +124,43 @@
                         </div>
                         <span class="checkmark">&#10003;</span>
                     </label>
-                    <label for="systems" class="filter highlight parts systems">
+                    <label for="weapons" class="filter filter--small highlight parts weapons">
+                        <div class="inner-filter">
+                            <img src="./icons/sloticon_Weapon.png" alt="">
+                            <input class="filter parts weapons d-none" checked type="checkbox" id="weapons" name="checkbox" value="1">
+                            <span>WEAPONS</span>
+                        </div>
+                        <span class="checkmark">&#10003;</span>
+                    </label>
+                    <label for="missiles" class="filter filter--small highlight parts missiles">
+                        <div class="inner-filter">
+                            <img src="./icons/sloticon_Missile.png" alt="">
+                            <input class="filter parts missiles d-none" checked type="checkbox" id="missiles" name="checkbox" value="1">
+                            <span>MISSILES</span>
+                        </div>
+                        <span class="checkmark">&#10003;</span>
+                    </label>
+                    <label for="fins" class="filter filter--small highlight parts fins">
+                        <div class="inner-filter">
+                            <img src="./icons/sloticon_Fin.png" alt="">
+                            <input class="filter parts fins d-none" checked type="checkbox" id="fins" name="checkbox" value="1">
+                            <span>FINS</span>
+                        </div>
+                        <span class="checkmark">&#10003;</span>
+                    </label>
+                    <label for="vents" class="filter filter--small highlight parts vents">
+                        <div class="inner-filter">
+                            <img src="./icons/sloticon_Vent.png" alt="">
+                            <input class="filter parts vents d-none" checked type="checkbox" id="vents" name="checkbox" value="1">
+                            <span>VENTS</span>
+                        </div>
+                        <span class="checkmark">&#10003;</span>
+                    </label>
+                    <label for="utility" class="filter filter--small highlight parts utility">
                         <div class="inner-filter">
                             <img src="./icons/sloticon_System.png" alt="">
-                            <input class="filter parts systems d-none" checked type="checkbox" id="systems" name="checkbox" value="1">
-                            <span>SYSTEMS</span>
+                            <input class="filter parts utility d-none" checked type="checkbox" id="utility" name="checkbox" value="1">
+                            <span>UTILITY</span>
                         </div>
                         <span class="checkmark">&#10003;</span>
                     </label>
@@ -105,7 +172,7 @@
     </main>
     <footer>
         <p>ALL RIGHTS RESERVED. SNAP SHIPS® IS A TRADEMARK OF <strong>SNAP SHIPS LLC</strong>.</p>
-        <p>ALL CONTENT COPYRIGHT 2023 <strong>SNAP SHIPS LLC</strong>.</p>
+        <p>ALL CONTENT COPYRIGHT 2024-2025 <strong>SNAP SHIPS LLC</strong>.</p>
     </footer>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
