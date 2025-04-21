@@ -82,6 +82,18 @@ header img {
     margin-right: .25rem;
 }
 
+.title-link:link {
+    color: var(--main-blue);
+}
+
+.title-link:hover {
+    text-decoration: none;
+}
+
+.title-link:active {
+    color: #FF0000;
+}
+
 /* END HEADER */
 /* START TITLE */
 
